@@ -1,10 +1,12 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    @vite('resources/js/app.js')
 </head>
+
 <body>
 
-    @yield('content')
+<div id="app"></div>
 
 </body>
 </html>

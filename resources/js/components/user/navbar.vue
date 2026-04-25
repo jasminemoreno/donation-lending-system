@@ -23,7 +23,7 @@
     </a>
 
     <!-- BROWSE -->
-    <a href="/browse"
+    <a href="{{ route('browse') }}"
        class="flex items-center gap-2 pb-1
        {{ request()->is('browse*') ? 'text-green-600 font-semibold border-b-2 border-green-600' : '' }}">
       <img src="{{ asset('assets/icons/menu.png') }}" class="w-4 h-4">
@@ -31,17 +31,17 @@
     </a>
 
     <!-- REQUESTS -->
-    <a href="/requests"
+   <a href="{{ route('request') }}"
        class="flex items-center gap-2 pb-1
-       {{ request()->is('requests*') ? 'text-green-600 font-semibold border-b-2 border-green-600' : '' }}">
+       {{ request()->is('request*') ? 'text-green-600 font-semibold border-b-2 border-green-600' : '' }}">
       <img src="{{ asset('assets/icons/request.png') }}" class="w-4 h-4">
       My Requests
     </a>
 
     <!-- LISTINGS -->
-    <a href="/listings"
+    <a href="{{ route('listing') }}"
        class="flex items-center gap-2 pb-1
-       {{ request()->is('listings*') ? 'text-green-600 font-semibold border-b-2 border-green-600' : '' }}">
+       {{ request()->is('listing*') ? 'text-green-600 font-semibold border-b-2 border-green-600' : '' }}">
       <img src="{{ asset('assets/icons/shop.png') }}" class="w-4 h-4">
       My Listings
     </a>
