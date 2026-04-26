@@ -1,29 +1,37 @@
-<!-- resources/views/layouts/userlayout.blade.php -->
+<template>
+  <div class="layout">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>@yield('title')</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- NAVBAR -->
+    <navbar />
 
-  <style>
-    body { font-family: 'Segoe UI', sans-serif; }
-    .card { border-radius: 18px; box-shadow: 0 6px 14px rgba(0,0,0,0.06); }
-    .soft { background: #E4EFE6; }
-    .green-soft { background: #E8F5E9; }
-  </style>
-</head>
+    <!-- PAGE CONTENT -->
+    <main class="content">
+      <router-view />
+    </main>
 
-<body class="bg-[#C6F2E0]">
+  </div>
+</template>
 
-  <!-- CALL NAVBAR -->
-  @include('component.usernavbar')
+<script>
+import navbar from "@/components/user/navbar.vue"
 
-  <!-- PAGE CONTENT -->
-  <main>
-    @yield('content')
-  </main>
+export default {
+  components: {
+    navbar
+  }
+}
+</script>
 
-</body>
-</html>
+<style scoped>
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #C6F2E0;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+</style>

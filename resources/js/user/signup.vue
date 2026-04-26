@@ -1,193 +1,210 @@
 <template>
-    <div class="page-wrapper">
-  
-      <div class="signup-card">
-  
-        <!-- LEFT SIDE -->
-        <div class="left-side" :style="leftStyle"></div>
-  
-        <!-- RIGHT SIDE -->
-        <div class="right-side">
-  
-          <div class="signup-content">
-  
-            <!-- HEADER -->
-            <div class="header">
-              <div class="title">Create an Account</div>
-              <div class="subtitle">Sign up to get started</div>
-            </div>
-  
-            <!-- FORM -->
-            <div class="form-container">
-  
-              <!-- FULL NAME -->
-              <div class="form-group">
-                <label>Full Name</label>
-                <div class="input-wrapper">
-                  <span class="input-icon">
-                    <img :src="userIcon" width="18">
-                  </span>
-                  <input v-model="form.name" type="text" class="form-control" placeholder="Enter full name">
-                </div>
-              </div>
-  
-              <!-- EMAIL -->
-              <div class="form-group">
-                <label>Email</label>
-                <div class="input-wrapper">
-                  <span class="input-icon">
-                    <img :src="mailIcon" width="18">
-                  </span>
-                  <input v-model="form.email" type="email" class="form-control" placeholder="Enter email">
-                </div>
-              </div>
-  
-              <!-- PHONE -->
-              <div class="form-group">
-                <label>Phone Number</label>
-                <div class="input-wrapper">
-                  <span class="input-icon">
-                    <img :src="phoneIcon" width="18">
-                  </span>
-                  <input v-model="form.phone" type="text" class="form-control" placeholder="Enter phone number">
-                </div>
-              </div>
-  
-              <!-- ADDRESS -->
-              <div class="form-group">
-                <label>Address</label>
-                <div class="input-wrapper">
-                  <span class="input-icon">
-                    <img :src="locationIcon" width="18">
-                  </span>
-                  <input v-model="form.address" type="text" class="form-control" placeholder="Enter address">
-                </div>
-              </div>
-  
-              <!-- PASSWORD -->
-              <div class="form-group">
-                <label>Password</label>
-                <div class="input-wrapper">
-                  <span class="input-icon">
-                    <img :src="passwordIcon" width="18">
-                  </span>
-                  <input v-model="form.password" type="password" class="form-control">
-                </div>
-              </div>
-  
-              <!-- CONFIRM PASSWORD -->
-              <div class="form-group">
-                <label>Confirm Password</label>
-                <div class="input-wrapper">
-                  <span class="input-icon">
-                    <img :src="passwordIcon" width="18">
-                  </span>
-                  <input v-model="form.confirm_password" type="password" class="form-control">
-                </div>
-              </div>
-  
-              <!-- TERMS -->
-              <div class="terms">
-                <label>
-                  <input type="checkbox" v-model="form.terms">
-                  I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
-                </label>
-              </div>
-  
-              <!-- BUTTON -->
-              <button class="signup-btn" @click="register">
-                Sign Up
-              </button>
-  
-              <!-- LOGIN -->
-              <div class="login-text">
-                Already have an account?
-                <a href="/login">Log in</a>
-              </div>
-  
-              <p class="error" v-if="error">{{ error }}</p>
-  
-            </div>
-  
+  <div class="page-wrapper">
+
+    <div class="signup-card">
+
+      <!-- LEFT SIDE -->
+      <div class="left-side" :style="leftStyle"></div>
+
+      <!-- RIGHT SIDE -->
+      <div class="right-side">
+
+        <div class="signup-content">
+
+          <!-- HEADER -->
+          <div class="header">
+            <div class="title">Create an Account</div>
+            <div class="subtitle">Sign up to get started</div>
           </div>
-  
+
+          <!-- FORM -->
+          <div class="form-container">
+
+            <!-- FULL NAME -->
+            <div class="form-group">
+              <label>Full Name</label>
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  <img :src="userIcon" width="18">
+                </span>
+                <input v-model="form.name" type="text" class="form-control" placeholder="Enter full name">
+              </div>
+            </div>
+
+            <!-- EMAIL -->
+            <div class="form-group">
+              <label>Email</label>
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  <img :src="mailIcon" width="18">
+                </span>
+                <input v-model="form.email" type="email" class="form-control" placeholder="Enter email">
+              </div>
+            </div>
+
+            <!-- PHONE -->
+            <div class="form-group">
+              <label>Phone Number</label>
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  <img :src="phoneIcon" width="18">
+                </span>
+                <input v-model="form.phone" type="text" class="form-control" placeholder="Enter phone number">
+              </div>
+            </div>
+
+            <!-- ADDRESS -->
+            <div class="form-group">
+              <label>Address</label>
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  <img :src="locationIcon" width="18">
+                </span>
+                <input v-model="form.address" type="text" class="form-control" placeholder="Enter address">
+              </div>
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="form-group">
+              <label>Password</label>
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  <img :src="passwordIcon" width="18">
+                </span>
+                <input v-model="form.password" type="password" class="form-control">
+              </div>
+            </div>
+
+            <!-- CONFIRM PASSWORD -->
+            <div class="form-group">
+              <label>Confirm Password</label>
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  <img :src="passwordIcon" width="18">
+                </span>
+                <input v-model="form.confirm_password" type="password" class="form-control">
+              </div>
+            </div>
+
+            <!-- TERMS -->
+            <div class="terms">
+              <label>
+                <input type="checkbox" v-model="form.terms">
+                I agree to the Terms and Privacy Policy
+              </label>
+            </div>
+
+            <!-- BUTTON -->
+            <button type="button" class="signup-btn" @click="register">
+              Sign Up
+            </button>
+
+            <!-- LOGIN -->
+            <div class="login-text">
+              Already have an account?
+              <a href="/login">Log in</a>
+            </div>
+
+            <p class="error" v-if="error">{{ error }}</p>
+
+          </div>
         </div>
-  
       </div>
-  
     </div>
-  </template>
-  
-  <script>
-  import axios from 'axios'
-  
-  import userIcon from '../assets/icons/user.png'
-  import mailIcon from '../assets/icons/mail.png'
-  import phoneIcon from '../assets/icons/phone.png'
-  import locationIcon from '../assets/icons/location.png'
-  import passwordIcon from '../assets/icons/password.png'
-  import bgImage from '../assets/img/background1.png'
-  
-  export default {
-    data() {
-      return {
-        error: '',
-  
-        userIcon,
-        mailIcon,
-        phoneIcon,
-        locationIcon,
-        passwordIcon,
-        bgImage,
-  
-        form: {
-          name: '',
-          email: '',
-          phone: '',
-          address: '',
-          password: '',
-          confirm_password: '',
-          terms: false
-        }
-      }
-    },
-  
-    methods: {
-      async register() {
-        this.error = ''
-  
-        if (this.form.password !== this.form.confirm_password) {
-          this.error = "Passwords do not match"
-          return
-        }
-  
-        if (!this.form.terms) {
-          this.error = "You must accept the terms"
-          return
-        }
-  
-        try {
-          const res = await axios.post('/api/register', this.form)
-  
-          alert(res.data.message)
-  
-          window.location.href = '/login'
-  
-        } catch (err) {
-          this.error = err.response?.data?.message || 'Registration failed'
-        }
-      }
-    },
-  
-    computed: {
-  leftStyle() {
+
+    <!-- ✅ SUCCESS POPUP -->
+    <SuccessPopup
+      :show="showSuccess"
+      :message="successMessage"
+      @close="showSuccess = false"
+    />
+
+  </div>
+</template>
+
+<script>
+import axios from 'axios'
+import SuccessPopup from "@/components/user/successpopup.vue"
+
+import userIcon from '../assets/icons/user.png'
+import mailIcon from '../assets/icons/mail.png'
+import phoneIcon from '../assets/icons/phone.png'
+import locationIcon from '../assets/icons/location.png'
+import passwordIcon from '../assets/icons/password.png'
+import bgImage from '../assets/img/background1.png'
+
+export default {
+  components: {
+    SuccessPopup
+  },
+
+  data() {
     return {
-      background: `url(${this.bgImage}) center/cover no-repeat`
+      error: '',
+      showSuccess: false,
+      successMessage: '',
+
+      userIcon,
+      mailIcon,
+      phoneIcon,
+      locationIcon,
+      passwordIcon,
+      bgImage,
+
+      form: {
+        name: '',
+        email: '',
+        phone: '',
+        address: '',
+        password: '',
+        confirm_password: '',
+        terms: false
+      }
+    }
+  },
+
+  methods: {
+    async register() {
+      this.error = ''
+
+      if (this.form.password !== this.form.confirm_password) {
+        this.error = "Passwords do not match"
+        return
+      }
+
+      if (!this.form.terms) {
+        this.error = "You must accept the terms"
+        return
+      }
+
+      try {
+        const res = await axios.post('/api/register', this.form)
+
+        // ✅ SHOW POPUP
+        this.successMessage = res.data.message
+        this.showSuccess = true
+
+        // ✅ AUTO REDIRECT AFTER 2s
+        setTimeout(() => {
+          this.showSuccess = false
+          this.$router.push('/login')
+        }, 2000)
+
+      } catch (err) {
+        this.error = err.response?.data?.message || 'Registration failed'
+      }
+    }
+  },
+
+  computed: {
+    leftStyle() {
+      return {
+        background: `url(${this.bgImage}) center/cover no-repeat`
+      }
     }
   }
 }
-  }
-  </script>
+</script>
   
   <style scoped>
   html, body {
