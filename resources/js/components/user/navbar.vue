@@ -17,23 +17,34 @@
     <nav class="nav-links">
 
       <!-- HOME -->
-      <router-link to="/home" class="nav-item" :class="{ active: isActive('/home') }">
-
+      <router-link
+        to="/home"
+        class="nav-item"
+        :class="{ active: isActive('/home') }"
+      >
         <img :src="isActive('/home') ? homeActiveIcon : homeIcon" />
         Home
       </router-link>
 
       <!-- BROWSE -->
-      <a class="nav-item disabled">
-        <img :src="menuIcon" />
+      <router-link
+        to="/items"
+        class="nav-item"
+        :class="{ active: isActive('/items') }"
+      >
+        <img :src="isActive('/items') ? browseActiveIcon : browseIcon" />
         Browse Items
-      </a>
+      </router-link>
 
-      <!-- REQUESTS -->
-      <a class="nav-item disabled">
-        <img :src="requestIcon" />
+      <!-- REQUESTS (NOW CLICKABLE) -->
+      <router-link
+        to="/requests"
+        class="nav-item"
+        :class="{ active: isActive('/requests') }"
+      >
+        <img :src="isActive('/requests') ? requestActiveIcon : requestIcon" />
         My Requests
-      </a>
+      </router-link>
 
       <!-- LISTINGS -->
       <a class="nav-item disabled">
@@ -65,9 +76,15 @@ import heartIcon from "@/assets/img/hearth.png"
 import homeIcon from "@/assets/icons/home.png"
 import homeActiveIcon from "@/assets/icons/home-filled.png"
 
-// OTHERS
-import menuIcon from "@/assets/icons/menu.png"
+// BROWSE
+import browseIcon from "@/assets/icons/menu.png"
+import browseActiveIcon from "@/assets/icons/application.png"
+
+// REQUEST
 import requestIcon from "@/assets/icons/request.png"
+import requestActiveIcon from "@/assets/icons/request-filled.png"
+
+// OTHERS
 import shopIcon from "@/assets/icons/shop.png"
 import messageIcon from "@/assets/icons/message.png"
 
@@ -79,8 +96,12 @@ export default {
       homeIcon,
       homeActiveIcon,
 
-      menuIcon,
+      browseIcon,
+      browseActiveIcon,
+
       requestIcon,
+      requestActiveIcon,
+
       shopIcon,
       messageIcon,
 
@@ -152,8 +173,13 @@ export default {
   gap: 6px;
   text-decoration: none;
   color: #333;
-  padding-bottom: 4px;
-  cursor: pointer;
+  padding: 8px 12px;
+  min-width: 120px;
+  justify-content: center;
+  border-bottom: 2px solid transparent;
+  font-weight: 600;
+  transition: 0.2s ease;
+  border-radius: 8px;
 }
 
 .nav-item img {
@@ -161,14 +187,14 @@ export default {
   height: 16px;
 }
 
-/* ACTIVE STYLE */
+/* ACTIVE */
 .active {
   color: #187342;
-  font-weight: 600;
   border-bottom: 2px solid #187342;
+  background: #f3faf5;
 }
 
-/* DISABLED ITEMS */
+/* DISABLED */
 .disabled {
   opacity: 0.5;
   cursor: not-allowed;

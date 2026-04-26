@@ -2,9 +2,9 @@
   <div class="layout">
 
     <!-- NAVBAR -->
-    <navbar />
+    <navbar class="top-navbar" />
 
-    <!-- PAGE CONTENT -->
+    <!-- PAGE CONTENT ONLY SCROLLS -->
     <main class="content">
       <router-view />
     </main>
@@ -24,14 +24,23 @@ export default {
 
 <style scoped>
 .layout {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   background: #C6F2E0;
+  overflow: hidden; /* prevent whole page scroll */
 }
 
+/* fixed navbar space */
+.top-navbar {
+  flex-shrink: 0;
+  height: 60px;
+}
+
+/* only content scrolls */
 .content {
   flex: 1;
+  overflow-y: auto;
   padding: 20px;
 }
 </style>
